@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="esp" ng-app="testApp">
+	<head>
+		<title>Document</title>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link href="app/css/styles.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<script src="app/lib/angular.min.js" type="text/javascript"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<script src="app/js/directives.js" type="text/javascript"></script>
+		<script src="app/js/services/services.js" type="text/javascript"></script>
+		<script src="app/js/app.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container-fluid">
+				<h1>TecnoEmpresas</h1>
+			</div>
+		</header>
+		<div class="container-fluid main-container">
+			<div ng-controller="testController">
+				<div class="company-list">
+					<div class="col-md-12 search-container">
+						<div class="col-12 col-sm-6 col-md-4 search-box" focus-filter>
+							<div class="img-container">
+								<img src="content/img/ico_search.png">
+							</div>
+							<input class="company-filter ng-pristine ng-valid ng-empty ng-touched italic" ng-model="inputSearch" type="text" name="company-search" placeholder="Buscar Empresa">
+							<div class="clean-filter-btn" clean-filter ng-click="inputSearch = string.empty">x</div>
+						</div>
+					</div>
+					<div class="col-md-12 table-title">
+						<h1>Empresas</h1>	
+					</div>
+					<div class="container-fluid">
+						<div class="row table-header">
+							<div class="col-6 col-sm-6 col-md-9">Nombre de Empresa</div><div class="col-6 col-sm-6 col-md-3 right-col">Ubicacion</div>
+						</div>
+						<div class="row table-row" ng-class="active == company.id ? 'selected' : ''" ng-repeat-start="company in companies | filter: inputSearch" ng-click="showDetail(company)" remove-last>
+							<div class="col-6 col-sm-6 col-md-9">{{company.name}}</div><div class="col-6 col-sm-6 col-md-3 right-col">{{company.offices[0].state}}</div>
+						</div>
+						<div class="table-details-content" ng-repeat-end="" ng-show="active == company.id">
+							<h5>Datos de la Empresa</h5><img src="content/img/ico_company.png"><div class="close-detail" ng-click="showDetail(null)">X</div>
+							<div class="box">
+								<div class="row">
+									<div class="col-sm-12 col-md-4"><p>Nombre: {{selectedCompany.name}}</p></div>
+									<div class="col-sm-12 col-md-4"><p>Telefono: {{selectedCompany.offices[0].phone}}</p></div>
+									<div class="col-sm-12 col-md-4"><p>Pais: {{selectedCompany.offices[0].country}}</p></div>
+									<div class="col-sm-12 col-md-4"><p>Direccion: {{selectedCompany.offices[0].address}}</p></div>
+								</div>
+							</div>
+							<h5>Productos</h5><img src="content/img/ico_products.png">
+							<div class="box">
+								<div class="row" ng-repeat="product in products">
+									<div class="col-md-12"><p>Producto {{$index +1}}: {{product.name}}</p></div>
+								</div>
+							</div>
+							<h5>Clientes</h5><img src="content/img/ico_clients.png">
+							<div class="box">
+								<div class="row client-details" ng-repeat="client in clients">
+									<div class="col-6 col-sm-6 col-md-4"><p>Nombre: {{client.name}}</p></div>
+									<div class="col-6 col-sm-6 col-md-4"><p>Telefono: {{client.offices[0].phone}}</p></div>
+									<div class="col-6 col-sm-6 col-md-4"><p>Pais: {{client.offices[0].country}}</p></div>
+									<div class="col-6 col-sm-6 col-md-4"><p>Direccion: {{client.offices[0].address}}</p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>	
+</html>

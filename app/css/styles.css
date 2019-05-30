@@ -1,0 +1,136 @@
+body{
+	margin: 0;
+	font-family: Helvetica;
+}
+
+header{
+	padding: 10px 15px;
+	background-color: #070944;
+}
+
+header div h1{
+	color: white;
+}
+
+h1,h2,h3{
+  margin: 0;
+  font-weight: 100;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+.main-container{
+	margin-bottom: 30px;
+}
+
+.company-title{
+	color: white;
+	padding: 10px 10px;
+}
+
+.company-list .selected{
+	border: 1px solid lightgrey;
+	border-bottom: none;
+}
+
+.search-container{
+	float: right;
+	margin: 10px 0px;
+	padding: 0px !important;
+}
+
+.search-container .search-box{
+	border: 1px solid lightgray;
+	border-radius: 50px;
+	float:right;
+	padding: 5px;
+}
+
+.search-container .search-box .img-container{
+	width: 50px;
+	border-radius:50px
+}
+
+.search-container .search-box .img-container img{
+	width: 50px;
+	float: left;
+}
+
+.search-container .search-box input.company-filter{
+	border: none;
+	font-style: normal;
+	margin: 10px;
+}
+
+.search-container .search-box input.company-filter.italic{
+	font-style: italic
+}
+
+.search-container .search-box .clean-filter-btn{
+	float: right;
+	margin: 12px;
+	cursor: pointer;
+}
+
+.table-title{
+	float: left;
+	color:#070944;
+	margin-bottom: 15px;
+}
+
+.table-title{
+	padding-left:20px !important;
+}
+
+.table-header{
+	background-color: lightgrey;
+	overflow: hidden;
+	padding: 7px;
+}
+
+.table-row{
+	overflow: hidden;
+	padding: 7px;
+	cursor: pointer;
+}
+
+.right-col{
+	float: right;
+	text-align: right;
+	padding-right: 25px !important;	
+}
+
+.table-details-content{
+	padding: 20px 30px 20px 30px;
+	margin: 0 -15px;
+	border: 1px solid lightgrey;
+	border-top: none;
+	-webkit-box-shadow: 1px 9px 4px -4px rgba(168,168,168,1);
+	-moz-box-shadow: 1px 9px 4px -4px rgba(168,168,168,1);
+	box-shadow: 1px 9px 4px -4px rgba(168,168,168,1);
+}
+
+.table-details-content .close-detail{
+	float: right;
+	cursor: pointer;	
+}
+
+.table-details-content h5{
+	display: inline-block;
+}
+
+.table-details-content .box{
+	margin:10px 30px;
+}
+
+.table-details-content img{
+	width: 50px;
+	margin-left: 10px;
+}
+
+.table-details-content .client-details{
+	padding: 5px 0px;
+	border-bottom: 1px solid lightgray;
+}
